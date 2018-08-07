@@ -605,11 +605,10 @@ class PanWFapi:
     def change_request(self,
                        hash=None,
                        verdict=None,
-                       email=None,
                        comment=None):
         self.__clear_response()
 
-        request_uri = '/publicapi/submit/change-request'
+        request_uri = '/publicapi/submit/local-verdict-change'
 
         form = _MultiPartFormData()
         form.add_field('apikey', self.api_key)
@@ -617,8 +616,6 @@ class PanWFapi:
             form.add_field('hash', hash)
         if verdict is not None:
             form.add_field('verdict', verdict)
-        if email is not None:
-            form.add_field('email', email)
         if comment is not None:
             form.add_field('comment', comment)
 
